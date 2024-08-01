@@ -91,6 +91,10 @@ public class conta {
             minhaconta = new Salario();
             minhaconta.criarConta();
         }
+        if (tipoconta == 4) {
+            minhaconta = new Universitaria();
+            minhaconta.criarConta();
+        }
 
         do {
             opcao = minhaconta.impriMenu();
@@ -112,7 +116,7 @@ public class conta {
                 default:
                     break;
             }
-        } while (opcao < 4);
+        } while (opcao < 5);
         
     }
 }
