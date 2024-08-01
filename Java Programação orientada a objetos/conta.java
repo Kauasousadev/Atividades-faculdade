@@ -24,39 +24,28 @@ public class conta {
             System.out.println("Conta criada com sucesso!");
         }
 
-        boolean depositar (){
+        boolean depositar (float valordeposito){
 
-            Scanner ler = new Scanner(System.in);
-
-            System.out.println("Informe o valor a ser depositado:");
-            float valor = ler.nextFloat();
-
-            if (valor <= 0) {
+            if (valordeposito <= 0) {
                 System.out.println("Valor inválido, precisa ser maior que 0!");
                 return false;
             } else {
-                saldo = saldo + valor;
+                saldo = saldo + valordeposito;
                System.out.println("Valor depositado com sucesso!");
                return true;
             }
         }
 
-        boolean sacar (){
+        boolean sacar (float valorsaque){
 
-            Scanner ler = new Scanner(System.in);
-
-            System.out.println("Informe o valor a ser sacado:");
-
-            float saque = ler.nextFloat();
-
-            if (saque < 0) {
+            if (valorsaque < 0) {
                 System.out.println("Valor inválido!");
                 return false;
-            } else if (saque > saldo) {
+            } else if (valorsaque > saldo) {
                 System.out.println("Saldo insuficiente!");
                 return false;
             } else {
-                saldo = saldo - saque;
+                saldo = saldo - valorsaque;
                 System.out.println("Saque realizado com sucesso!");
                 return true;
             }
@@ -94,6 +83,10 @@ public class conta {
             minhaconta = new conta();
             minhaconta.criarConta();
         }
+        if (tipoconta == 2) {
+            minhaconta = new Poupança();
+            minhaconta.criarConta();
+        }
 
         do {
             opcao = minhaconta.impriMenu();
@@ -103,10 +96,14 @@ public class conta {
                     System.out.println("O saldo da conta é:" + valorsaldo);
                     break;
                 case 2:
-                    minhaconta.depositar();
+                    System.out.println("Indique o valor a ser depositado:");
+                    float valordeposito = ler.nextFloat();
+                    minhaconta.depositar(valordeposito);
                     break;
                 case 3:
-                    minhaconta.sacar();
+                    System.out.println("Indique o valor a ser sacado:");
+                    float valorsaque = ler.nextFloat();
+                    minhaconta.sacar(valorsaque);
                     break;           
                 default:
                     break;
