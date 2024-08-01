@@ -87,6 +87,10 @@ public class conta {
             minhaconta = new Poupança();
             minhaconta.criarConta();
         }
+        if (tipoconta == 3) {
+            minhaconta = new Salario();
+            minhaconta.criarConta();
+        }
 
         do {
             opcao = minhaconta.impriMenu();
