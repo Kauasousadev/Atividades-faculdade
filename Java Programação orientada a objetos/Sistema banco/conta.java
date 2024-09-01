@@ -7,10 +7,12 @@ public class conta {
         String codigoconta;
         String nome;
     
+        //Método get para retornar o valor do saldo
         float getSaldo (){
             return saldo;
         }
 
+        //Método que exibe o menu que cria a conta, recebendo nome do portador, código da conta e saldo inicial
         void criarConta (){
             Scanner ler = new Scanner(System.in);
 
@@ -24,6 +26,7 @@ public class conta {
             System.out.println("Conta criada com sucesso!");
         }
 
+        //Método para fazer o depósito de saldo na conta
         boolean depositar (float valordeposito){
 
             if (valordeposito <= 0) {
